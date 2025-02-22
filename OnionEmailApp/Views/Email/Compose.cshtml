@@ -2,25 +2,25 @@
     ViewData["Title"] = "Compose Email";
 }
 
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%;">
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-5 rounded-4 glassmorphism" style="max-width: 700px; width: 100%;">
         <h2 class="text-center text-primary fw-bold mb-4">📩 Compose Email</h2>
 
         <form method="post" asp-action="SendEmail">
-            <div class="mb-3">
-                <label class="form-label fw-semibold">Subject</label>
-                <input type="text" name="subject" class="form-control border-2 border-primary rounded-pill px-3"
+            <div class="mb-4">
+                <label class="form-label fw-semibold fs-5">Subject</label>
+                <input type="text" name="subject" class="form-control border-2 border-primary rounded-3 px-4 py-3"
                        placeholder="Enter email subject..." required />
             </div>
 
-            <div class="mb-3">
-                <label class="form-label fw-semibold">Message</label>
-                <textarea name="body" class="form-control border-2 border-primary rounded-3 px-3 py-2"
-                          rows="5" placeholder="Write your message here..." required></textarea>
+            <div class="mb-4">
+                <label class="form-label fw-semibold fs-5">Message</label>
+                <textarea name="body" class="form-control border-2 border-primary rounded-3 px-4 py-3"
+                          rows="8" placeholder="Write your message here..." required></textarea>
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-lg btn-gradient px-4 py-2 rounded-pill shadow-sm">
+                <button type="submit" class="btn btn-lg btn-gradient px-5 py-3 rounded-pill shadow-sm">
                     ✉️ Send Email
                 </button>
             </div>
@@ -28,7 +28,7 @@
 
         @if (ViewBag.Message != null)
         {
-            <div class="alert alert-success text-center mt-3 fw-bold rounded-pill">
+            <div class="alert alert-success text-center mt-4 fw-bold rounded-pill">
                 @ViewBag.Message
             </div>
         }
@@ -36,16 +36,38 @@
 </div>
 
 <style>
+    /* Centering & Background */
+    .vh-100 {
+        height: 100vh;
+    }
+
+    /* Glassmorphism Card */
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Gradient Button */
     .btn-gradient {
         background: linear-gradient(to right, #4facfe, #00f2fe);
         color: white;
         font-weight: bold;
+        font-size: 1.2rem;
         border: none;
         transition: 0.3s;
     }
 
-    .btn-gradient:hover {
-        background: linear-gradient(to right, #00f2fe, #4facfe);
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        .btn-gradient:hover {
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+    /* Form Inputs */
+    .form-control {
+        font-size: 1.1rem;
     }
 </style>

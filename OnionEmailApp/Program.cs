@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using OnionEmailApp.Application.Interfaces;
 using OnionEmailApp.Application.Services;
 using OnionEmailApp.Domain.Repositories;
+using OnionEmailApp.Domain.Entities;
 using OnionEmailApp.Infrastructure.Data;
 using OnionEmailApp.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
@@ -16,14 +17,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Register Dependencies
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-
-
-
-
-
-
-
-
 //var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
@@ -32,7 +25,6 @@ builder.Configuration
 // Register SMTP settings
 builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
 builder.Services.AddScoped<IEmailService, EmailService>();
-
 
 var app = builder.Build();
 app.UseRouting();

@@ -6,15 +6,9 @@ using Microsoft.Extensions.Options;
 using MimeKit;
 using OnionEmailApp.Application.Interfaces;
 using OnionEmailApp.Domain.Repositories;
-
+using OnionEmailApp.Domain.Entities;
 namespace OnionEmailApp.Application.Services
 {
-
-    public class SmtpSettings
-    {
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
     public class EmailService : IEmailService
     {
         private readonly IUserRepository _userRepository;
