@@ -20,7 +20,7 @@ namespace OnionEmailApp.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly SmtpSettings _smtpSettings;
 
-        // ✅ Constructor takes both dependencies
+
         public EmailService(IUserRepository userRepository, IOptions<SmtpSettings> smtpSettings)
         {
             _userRepository = userRepository;
@@ -31,7 +31,7 @@ namespace OnionEmailApp.Application.Services
             Console.WriteLine($"Loaded SMTP Password: {_smtpSettings.Password}");
         }
 
-        // ✅ Correct implementation of SendEmailAsync(string subject, string body)
+
         public async Task SendEmailAsync(string subject, string body)
         {
             var users = await _userRepository.GetAllUsersAsync();
