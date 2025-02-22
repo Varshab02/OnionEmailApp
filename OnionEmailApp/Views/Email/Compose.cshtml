@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Compose Email";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%;">
+        <h2 class="text-center text-primary fw-bold mb-4">📩 Compose Email</h2>
+
+        <form method="post" asp-action="SendEmail">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Subject</label>
+                <input type="text" name="subject" class="form-control border-2 border-primary rounded-pill px-3"
+                       placeholder="Enter email subject..." required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Message</label>
+                <textarea name="body" class="form-control border-2 border-primary rounded-3 px-3 py-2"
+                          rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-gradient px-4 py-2 rounded-pill shadow-sm">
+                    ✉️ Send Email
+                </button>
+            </div>
+        </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success text-center mt-3 fw-bold rounded-pill">
+                @ViewBag.Message
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .btn-gradient {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        color: white;
+        font-weight: bold;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-gradient:hover {
+        background: linear-gradient(to right, #00f2fe, #4facfe);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
